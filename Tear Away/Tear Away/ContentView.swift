@@ -8,12 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showSplashScreen = true
+
     var body: some View {
-        GeometryReader { geometry in
-            GIFPlayerView(gifName: "splashscreen")
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .edgesIgnoringSafeArea(.all) // Ensure it covers the entire screen
+        if showSplashScreen {
+            GIFPlayerView(gifName: "splashscreen", speed: 1.0) // Adjust speed here
+                .edgesIgnoringSafeArea(.all)
+                .background(Color.black)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.2) {
+                        withAnimation {
+                            showSplashScreen = false
+                        }
+                    }
+                }
+        } else {
+            MainView()
         }
+    }
+}
+
+struct MainView: View {
+    var body: some View {
+        Text("Welcome to the app!")
     }
 }
 
