@@ -10,44 +10,35 @@ import UIKit
 import ImageIO
 
 extension UIImage {
+    class func gif(data: Data, speed: Double) -> UIImage? {
+        guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
+            return nil
+        }
 
-    static func gif(data: Data, speed: Double = 1.0) -> UIImage? {
-        guard let source = CGImageSourceCreateWithData(data as CFData, nil) else { return nil }
-
+        let count = CGImageSourceGetCount(source)
         var images = [UIImage]()
         var duration: TimeInterval = 0
 
-        let count = CGImageSourceGetCount(source)
-
         for i in 0..<count {
-            if let cgImage = CGImageSourceCreateImageAtIndex(source, i, nil) {
-                let frameDuration = UIImage.frameDuration(from: source, at: i)
-                duration += frameDuration * speed // Adjust speed here
-                let image = UIImage(cgImage: cgImage)
-                images.append(image)
+            guard let imageRef = CGImageSourceCreateImageAtIndex(source, i, nil) else {
+                continue
             }
+
+            let frameDuration = UIImage.frameDuration(at: i, source: source)
+            duration += frameDuration
+            let image = UIImage(cgImage: imageRef)
+            images.append(image)
         }
 
-        return UIImage.animatedImage(with: images, duration: duration)
+        let adjustedDuration = duration / speed
+        return UIImage.animatedImage(with: images, duration: adjustedDuration)
     }
 
-    private static func frameDuration(from source: CGImageSource, at index: Int) -> TimeInterval {
-        var frameDuration = 0.1
-
-        let frameProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil) as? [String: Any]
-        let gifProperties = frameProperties?[kCGImagePropertyGIFDictionary as String] as? [String: Any]
-
-        if let delayTimeUnclampedProp = gifProperties?[kCGImagePropertyGIFUnclampedDelayTime as String] as? Double {
-            frameDuration = delayTimeUnclampedProp
-        } else if let delayTimeProp = gifProperties?[kCGImagePropertyGIFDelayTime as String] as? Double {
-            frameDuration = delayTimeProp
-        }
-
-        // Some frame durations are too short, capping them
-        if frameDuration < 0.1 {
-            frameDuration = 0.1
-        }
-
-        return frameDuration
+    private class func frameDuration(at index: Int, source: CGImageSource) -> TimeInterval {
+        let cfProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil)
+        let properties = cfProperties as? [String: Any]
+        let gifProperties = properties?[kCGImagePropertyGIFDictionary as String] as? [String: Any]
+        let delayTime = gifProperties?[kCGImagePropertyGIFUnclampedDelayTime as String] as? Double ?? 0.1
+        return delayTime
     }
 }

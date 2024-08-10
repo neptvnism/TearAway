@@ -3,7 +3,6 @@
 //  Tear Away
 //
 //  Created by Nadeen Ihab  on 10/08/2024.
-
 import SwiftUI
 import UIKit
 

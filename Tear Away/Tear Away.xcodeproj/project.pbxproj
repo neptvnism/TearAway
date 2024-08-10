@@ -16,6 +16,9 @@
 		591A25F82C67A424006BD826 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591A25F72C67A424006BD826 /* UIImage+GIF.swift */; };
 		591A25F92C67A424006BD826 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591A25F72C67A424006BD826 /* UIImage+GIF.swift */; };
 		591A25FA2C67A424006BD826 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591A25F72C67A424006BD826 /* UIImage+GIF.swift */; };
+		594A65662C680F2E003B898C /* intro.gif in Resources */ = {isa = PBXBuildFile; fileRef = 594A65652C680F2E003B898C /* intro.gif */; };
+		594A65672C680F2E003B898C /* intro.gif in Resources */ = {isa = PBXBuildFile; fileRef = 594A65652C680F2E003B898C /* intro.gif */; };
+		594A65682C680F2E003B898C /* intro.gif in Resources */ = {isa = PBXBuildFile; fileRef = 594A65652C680F2E003B898C /* intro.gif */; };
 		59B0D03D2C66738F0013C8DF /* Tear_AwayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0D03C2C66738F0013C8DF /* Tear_AwayApp.swift */; };
 		59B0D03F2C66738F0013C8DF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0D03E2C66738F0013C8DF /* ContentView.swift */; };
 		59B0D0412C6673910013C8DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B0D0402C6673910013C8DF /* Assets.xcassets */; };
@@ -46,6 +49,7 @@
 		591A25EB2C678DF1006BD826 /* splashscreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splashscreen.gif; sourceTree = "<group>"; };
 		591A25EF2C678ECB006BD826 /* GIFPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFPlayerView.swift; sourceTree = "<group>"; };
 		591A25F72C67A424006BD826 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
+		594A65652C680F2E003B898C /* intro.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = intro.gif; sourceTree = "<group>"; };
 		59B0D0392C66738F0013C8DF /* Tear Away.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tear Away.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B0D03C2C66738F0013C8DF /* Tear_AwayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tear_AwayApp.swift; sourceTree = "<group>"; };
 		59B0D03E2C66738F0013C8DF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		59B0D03B2C66738F0013C8DF /* Tear Away */ = {
 			isa = PBXGroup;
 			children = (
+				594A65652C680F2E003B898C /* intro.gif */,
 				591A25EB2C678DF1006BD826 /* splashscreen.gif */,
 				59B0D03C2C66738F0013C8DF /* Tear_AwayApp.swift */,
 				59B0D03E2C66738F0013C8DF /* ContentView.swift */,
@@ -247,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59B0D0442C6673910013C8DF /* Preview Assets.xcassets in Resources */,
+				594A65662C680F2E003B898C /* intro.gif in Resources */,
 				59B0D0412C6673910013C8DF /* Assets.xcassets in Resources */,
 				591A25EC2C678DF1006BD826 /* splashscreen.gif in Resources */,
 			);
@@ -257,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				591A25ED2C678DF1006BD826 /* splashscreen.gif in Resources */,
+				594A65672C680F2E003B898C /* intro.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				591A25EE2C678DF1006BD826 /* splashscreen.gif in Resources */,
+				594A65682C680F2E003B898C /* intro.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
